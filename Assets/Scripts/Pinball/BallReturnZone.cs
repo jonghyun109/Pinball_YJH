@@ -24,7 +24,7 @@ public sealed class BallReturnZone : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         var ball = other.GetComponent<PinballBall>();
-        if (ball == null || !ball.CanRecycle() || PinballGame.Instance == null)
+        if (ball == null || ball.Guided || !ball.CanRecycle() || PinballGame.Instance == null)
         {
             return;
         }

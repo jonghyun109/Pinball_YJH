@@ -42,15 +42,10 @@ public static class PinballMirrorTool
             var p = src.position;
             p.x = 2f * axisX - p.x;
             copy.transform.position = p;
-
-            var e = src.eulerAngles;
-            e.z = -e.z;
-            copy.transform.eulerAngles = e;
+            copy.transform.rotation = src.rotation;
 
             var s = src.localScale;
-            s.x = Mathf.Abs(s.x);
-            s.y = Mathf.Abs(s.y);
-            s.z = Mathf.Abs(s.z);
+            s.x = -Mathf.Abs(s.x);
             copy.transform.localScale = s;
 
             created.Add(copy);

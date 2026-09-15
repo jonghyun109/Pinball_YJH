@@ -6,7 +6,7 @@ using UnityEngine;
 public sealed class Bumper : MonoBehaviour
 {
     [Tooltip("공에 추가로 가하는 힘입니다.")]
-    [SerializeField] float kickForce = 3.4f;
+    [SerializeField] float kickForce = 1.2f;
     [SerializeField] float minImpactSpeed = 0.8f;
     [SerializeField] bool flashOnHit = true;
 
@@ -53,8 +53,8 @@ public sealed class Bumper : MonoBehaviour
         }
 
         Vector2 tangent = new Vector2(-away.y, away.x);
-        Vector2 kick = away * (kickForce * Random.Range(0.75f, 1.25f));
-        kick += tangent * Random.Range(-0.35f, 0.35f) * kickForce;
+        Vector2 kick = away * (kickForce * Random.Range(0.9f, 1.1f));
+        kick += tangent * Random.Range(-0.12f, 0.12f) * kickForce;
         collision.rigidbody.AddForce(kick, ForceMode2D.Impulse);
 
         if (flashOnHit)

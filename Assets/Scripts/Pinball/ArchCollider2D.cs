@@ -72,6 +72,35 @@ public sealed class ArchCollider2D : MonoBehaviour
         }
     }
 
+    public Collider2D EdgeCollider
+    {
+        get
+        {
+            EnsureHost();
+            EnsureCollider();
+            return _edge;
+        }
+    }
+
+    public Vector2 GetWorldCenter()
+    {
+        EnsureHost();
+        return _host.TransformPoint(center);
+    }
+
+    public Vector2[] GetWorldPoints()
+    {
+        EnsureHost();
+        var local = BuildArcPoints();
+        var world = new Vector2[local.Length];
+        for (int i = 0; i < local.Length; i++)
+        {
+            world[i] = _host.TransformPoint(local[i]);
+        }
+
+        return world;
+    }
+
     [ContextMenu("Rebuild Arch")]
     public void Rebuild()
     {

@@ -8,7 +8,7 @@ PhysicsMaterial2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PinballBumper
-  friction: 0.04
-  bounciness: 0.92
+  friction: 0.08
+  bounciness: 0.35
   m_FrictionCombine: 0
-  m_BounceCombine: 3
+  m_BounceCombine: 0

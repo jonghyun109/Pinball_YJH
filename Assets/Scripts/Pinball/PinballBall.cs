@@ -6,10 +6,13 @@ using UnityEngine;
 public sealed class PinballBall : MonoBehaviour
 {
     Rigidbody2D _body;
+    Collider2D _collider;
     float _launchedAt = -10f;
+    float _baseGravityScale = 1.15f;
 
     public Rigidbody2D Body => _body;
     public bool InPlay { get; private set; }
+    public bool Guided { get; private set; }
 
     void Reset()
     {
@@ -32,8 +35,10 @@ public sealed class PinballBall : MonoBehaviour
     void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         _body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         _body.interpolation = RigidbodyInterpolation2D.Interpolate;
+        _baseGravityScale = _body.gravityScale;
     }
 
     public void Launch(Vector2 position, Vector2 velocity, float spin = 0f)
@@ -43,6 +48,7 @@ public sealed class PinballBall : MonoBehaviour
             _body = GetComponent<Rigidbody2D>();
         }
 
+        StopGuide();
         InPlay = true;
         _launchedAt = Time.time;
         transform.position = position;
@@ -57,7 +63,54 @@ public sealed class PinballBall : MonoBehaviour
 
     public bool CanRecycle()
     {
-        return InPlay && Time.time - _launchedAt > 0.35f;
+        return InPlay && !Guided && Time.time - _launchedAt > 0.35f;
+    }
+
+    public void BeginGuide()
+    {
+        if (_body == null)
+        {
+            _body = GetComponent<Rigidbody2D>();
+        }
+
+        Guided = true;
+        if (_collider == null)
+        {
+            _collider = GetComponent<Collider2D>();
+        }
+
+        if (_collider != null)
+        {
+            _collider.enabled = false;
+        }
+
+        _body.bodyType = RigidbodyType2D.Kinematic;
+        _body.gravityScale = 0f;
+        _body.linearVelocity = Vector2.zero;
+        _body.angularVelocity = 0f;
+    }
+
+    public void FollowGuide(Vector2 position, float angularVelocity)
+    {
+        if (_body == null)
+        {
+            return;
+        }
+
+        _body.MovePosition(position);
+        _body.angularVelocity = angularVelocity;
+    }
+
+    public void EndGuide(Vector2 velocity)
+    {
+        if (!Guided)
+        {
+            return;
+        }
+
+        StopGuide();
+        _body.linearVelocity = velocity;
+        _body.WakeUp();
     }
 
     public void SleepInPool()
@@ -68,9 +121,26 @@ public sealed class PinballBall : MonoBehaviour
             _body = GetComponent<Rigidbody2D>();
         }
 
+        StopGuide();
         _body.linearVelocity = Vector2.zero;
         _body.angularVelocity = 0f;
         _body.simulated = false;
         gameObject.SetActive(false);
+    }
+
+    void StopGuide()
+    {
+        Guided = false;
+        if (_body == null)
+        {
+            return;
+        }
+
+        _body.bodyType = RigidbodyType2D.Dynamic;
+        _body.gravityScale = _baseGravityScale;
+        if (_collider != null)
+        {
+            _collider.enabled = true;
+        }
     }
 }
