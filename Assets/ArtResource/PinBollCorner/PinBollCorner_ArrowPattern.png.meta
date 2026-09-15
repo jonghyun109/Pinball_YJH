@@ -1,0 +1,561 @@
+fileFormatVersion: 2
+guid: fc7d9aa0f6404b34faeab838a608726a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3100441723424940745
+    second: PinBollCorner_ArrowPattern_0
+  - first:
+      213: -6729766241684854284
+    second: PinBollCorner_ArrowPattern_1
+  - first:
+      213: 1937869433741220157
+    second: PinBollCorner_ArrowPattern_2
+  - first:
+      213: -5109506085438311911
+    second: PinBollCorner_ArrowPattern_3
+  - first:
+      213: -7428887528885645786
+    second: PinBollCorner_ArrowPattern_4
+  - first:
+      213: 1207215057951681411
+    second: PinBollCorner_ArrowPattern_5
+  - first:
+      213: -8642415340561680055
+    second: PinBollCorner_ArrowPattern_6
+  - first:
+      213: 7049323621668943875
+    second: PinBollCorner_ArrowPattern_7
+  - first:
+      213: 2753389624106647060
+    second: PinBollCorner_ArrowPattern_8
+  - first:
+      213: 1589808484588308129
+    second: PinBollCorner_ArrowPattern_9
+  - first:
+      213: 3158783474285500997
+    second: PinBollCorner_ArrowPattern_10
+  - first:
+      213: 6183648334245730478
+    second: PinBollCorner_ArrowPattern_11
+  - first:
+      213: 7807808832733749802
+    second: PinBollCorner_ArrowPattern_12
+  - first:
+      213: -4755817307541581254
+    second: PinBollCorner_ArrowPattern_13
+  - first:
+      213: -3810170669772991352
+    second: PinBollCorner_ArrowPattern_14
+  - first:
+      213: -551044745129402523
+    second: PinBollCorner_ArrowPattern_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 575
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c22b83125bf60b20800000000000000
+      internalID: 3100441723424940745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 537
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f965fe42411b92a0800000000000000
+      internalID: -6729766241684854284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_2
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 504
+        width: 39
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d399b339bf1b4ea10800000000000000
+      internalID: 1937869433741220157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_3
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 468
+        width: 41
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 912b0cf59436719b0800000000000000
+      internalID: -5109506085438311911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 437
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e0174072a47e890800000000000000
+      internalID: -7428887528885645786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 402
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b66b8f2b3e0c010800000000000000
+      internalID: 1207215057951681411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_6
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 365
+        width: 42
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9493f688909ff0880800000000000000
+      internalID: -8642415340561680055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_7
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 330
+        width: 42
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 308f8582c7a34d160800000000000000
+      internalID: 7049323621668943875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 297
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e7f196641063620800000000000000
+      internalID: 2753389624106647060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 261
+        width: 62
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a6c9c0c462201610800000000000000
+      internalID: 1589808484588308129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_10
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 226
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54a592b75d046db20800000000000000
+      internalID: 3158783474285500997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 189
+        width: 52
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea817aac56bb0d550800000000000000
+      internalID: 6183648334245730478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 145
+        width: 52
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a22a04d04c8ea5c60800000000000000
+      internalID: 7807808832733749802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_13
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 101
+        width: 51
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a32545f2b51fffdb0800000000000000
+      internalID: -4755817307541581254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_14
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 56
+        width: 52
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884919686fd8f1bc0800000000000000
+      internalID: -3810170669772991352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinBollCorner_ArrowPattern_15
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 12
+        width: 56
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f573f49bb4a58f0800000000000000
+      internalID: -551044745129402523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PinBollCorner_ArrowPattern_0: 3100441723424940745
+      PinBollCorner_ArrowPattern_1: -6729766241684854284
+      PinBollCorner_ArrowPattern_10: 3158783474285500997
+      PinBollCorner_ArrowPattern_11: 6183648334245730478
+      PinBollCorner_ArrowPattern_12: 7807808832733749802
+      PinBollCorner_ArrowPattern_13: -4755817307541581254
+      PinBollCorner_ArrowPattern_14: -3810170669772991352
+      PinBollCorner_ArrowPattern_15: -551044745129402523
+      PinBollCorner_ArrowPattern_2: 1937869433741220157
+      PinBollCorner_ArrowPattern_3: -5109506085438311911
+      PinBollCorner_ArrowPattern_4: -7428887528885645786
+      PinBollCorner_ArrowPattern_5: 1207215057951681411
+      PinBollCorner_ArrowPattern_6: -8642415340561680055
+      PinBollCorner_ArrowPattern_7: 7049323621668943875
+      PinBollCorner_ArrowPattern_8: 2753389624106647060
+      PinBollCorner_ArrowPattern_9: 1589808484588308129
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,691 @@
+fileFormatVersion: 2
+guid: 8464d74c8e481324b84c94bb3c49dd70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6810725152842320352
+    second: SlotMachine_Light001_0
+  - first:
+      213: -707378294257306624
+    second: SlotMachine_Light001_1
+  - first:
+      213: 3379122919555825280
+    second: SlotMachine_Light001_2
+  - first:
+      213: 2642497936467053091
+    second: SlotMachine_Light001_3
+  - first:
+      213: 298348918828846761
+    second: SlotMachine_Light001_4
+  - first:
+      213: -8870173491400761365
+    second: SlotMachine_Light001_5
+  - first:
+      213: -8874631744830312287
+    second: SlotMachine_Light001_6
+  - first:
+      213: 5300726677329992343
+    second: SlotMachine_Light001_7
+  - first:
+      213: 5894253546613305456
+    second: SlotMachine_Light001_8
+  - first:
+      213: -1763257355892156598
+    second: SlotMachine_Light001_9
+  - first:
+      213: -7756737750086311275
+    second: SlotMachine_Light001_10
+  - first:
+      213: -7353851215915077581
+    second: SlotMachine_Light001_11
+  - first:
+      213: -5667103739002724114
+    second: SlotMachine_Light001_12
+  - first:
+      213: 3211225282021519703
+    second: SlotMachine_Light001_13
+  - first:
+      213: -569133965422459426
+    second: SlotMachine_Light001_14
+  - first:
+      213: -5890132428727357437
+    second: SlotMachine_Light001_15
+  - first:
+      213: 5995443703610186474
+    second: SlotMachine_Light001_16
+  - first:
+      213: 6420999409021043683
+    second: SlotMachine_Light001_17
+  - first:
+      213: -5572860380969416016
+    second: SlotMachine_Light001_18
+  - first:
+      213: -2420547207500956639
+    second: SlotMachine_Light001_19
+  - first:
+      213: -8824421505296595148
+    second: SlotMachine_Light001_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SlotMachine_Light001_0
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 863
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026f30aee817b71a0800000000000000
+      internalID: -6810725152842320352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_1
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 856
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004b8f07033ee26f0800000000000000
+      internalID: -707378294257306624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 811
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e7188546e05ee20800000000000000
+      internalID: 3379122919555825280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 718
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32a42d66fd90ca420800000000000000
+      internalID: 2642497936467053091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_4
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 728
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ae4aedc2c2f32400800000000000000
+      internalID: 298348918828846761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_5
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 710
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef98fca430d6e480800000000000000
+      internalID: -8870173491400761365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_6
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 623
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0fbf8a279f6d480800000000000000
+      internalID: -8874631744830312287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 597
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ad0bd14d6ff8940800000000000000
+      internalID: 5300726677329992343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_8
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 496
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 070f8fd1f589cc150800000000000000
+      internalID: 5894253546613305456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 471
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a471476e6c6a787e0800000000000000
+      internalID: -1763257355892156598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_10
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 370
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5922e3efc188a5490800000000000000
+      internalID: -7756737750086311275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_11
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 344
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 330be40184fd1f990800000000000000
+      internalID: -7353851215915077581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_12
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 243
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0647bcc276a51b0800000000000000
+      internalID: -5667103739002724114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_13
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 217
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75175a45160909c20800000000000000
+      internalID: 3211225282021519703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_14
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 116
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed582618ca70a18f0800000000000000
+      internalID: -569133965422459426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 90
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30072b963cb024ea0800000000000000
+      internalID: -5890132428727357437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_16
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea99808848143350800000000000000
+      internalID: 5995443703610186474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_17
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e341bd41f8fb1950800000000000000
+      internalID: 6420999409021043683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_18
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 0
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba4871820939a2b0800000000000000
+      internalID: -5572860380969416016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_19
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 0
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12c77dea32d786ed0800000000000000
+      internalID: -2420547207500956639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotMachine_Light001_20
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 0
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4378a7c056b598580800000000000000
+      internalID: -8824421505296595148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SlotMachine_Light001_0: -6810725152842320352
+      SlotMachine_Light001_1: -707378294257306624
+      SlotMachine_Light001_10: -7756737750086311275
+      SlotMachine_Light001_11: -7353851215915077581
+      SlotMachine_Light001_12: -5667103739002724114
+      SlotMachine_Light001_13: 3211225282021519703
+      SlotMachine_Light001_14: -569133965422459426
+      SlotMachine_Light001_15: -5890132428727357437
+      SlotMachine_Light001_16: 5995443703610186474
+      SlotMachine_Light001_17: 6420999409021043683
+      SlotMachine_Light001_18: -5572860380969416016
+      SlotMachine_Light001_19: -2420547207500956639
+      SlotMachine_Light001_2: 3379122919555825280
+      SlotMachine_Light001_20: -8824421505296595148
+      SlotMachine_Light001_3: 2642497936467053091
+      SlotMachine_Light001_4: 298348918828846761
+      SlotMachine_Light001_5: -8870173491400761365
+      SlotMachine_Light001_6: -8874631744830312287
+      SlotMachine_Light001_7: 5300726677329992343
+      SlotMachine_Light001_8: 5894253546613305456
+      SlotMachine_Light001_9: -1763257355892156598
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
