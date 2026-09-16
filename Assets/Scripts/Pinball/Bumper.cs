@@ -10,9 +10,29 @@ public sealed class Bumper : MonoBehaviour
     [SerializeField] float minImpactSpeed = 0.8f;
     [SerializeField] bool flashOnHit = true;
 
+    [Header("맞을 때 크기")]
+    [Tooltip("바깥(또는 작은 범퍼 전체)이 커지는 배율입니다.")]
+    [SerializeField] float punchScale = 1.12f;
+    [Tooltip("큰 범퍼 안쪽 이미지가 커지는 배율입니다. 바깥보다 크게 두면 됩니다.")]
+    [SerializeField] float innerPunchScale = 1.3f;
+    [SerializeField] float punchDuration = 0.14f;
+    [Tooltip("큰 범퍼에서 더 크게 팝할 안쪽 이미지들. 여기에 넣은 것만 커집니다.")]
+    [SerializeField] Transform[] innerVisuals;
+
+    [Header("게이지")]
+    [Tooltip("큰 범퍼 Fill 이미지에 Sprite Radial Fill을 붙인 뒤 여기에 넣습니다.")]
+    [SerializeField] SpriteRadialFill hitFill;
+    [Tooltip("이 횟수만큼 맞으면 Fill이 가득 찹니다.")]
+    [SerializeField] int hitsToFill = 8;
+    [SerializeField] bool resetWhenFull = true;
+
     SpriteRenderer _renderer;
     Color _baseColor;
+    Vector3 _outerRest;
+    Vector3[] _innerRests;
+    int _fillHits;
     Coroutine _flash;
+    Coroutine _punch;
 
     void Reset()
     {
@@ -31,6 +51,18 @@ public sealed class Bumper : MonoBehaviour
         if (_renderer != null)
         {
             _baseColor = _renderer.color;
+        }
+
+        _outerRest = transform.localScale;
+        _innerRests = innerVisuals != null ? new Vector3[innerVisuals.Length] : System.Array.Empty<Vector3>();
+        for (int i = 0; i < _innerRests.Length; i++)
+        {
+            _innerRests[i] = innerVisuals[i] != null ? innerVisuals[i].localScale : Vector3.one;
+        }
+
+        if (hitFill != null)
+        {
+            hitFill.FillAmount = 0f;
         }
     }
 
@@ -57,9 +89,72 @@ public sealed class Bumper : MonoBehaviour
         kick += tangent * Random.Range(-0.12f, 0.12f) * kickForce;
         collision.rigidbody.AddForce(kick, ForceMode2D.Impulse);
 
+        Punch();
+        AddFill();
         if (flashOnHit)
         {
             Flash();
+        }
+    }
+
+    void AddFill()
+    {
+        if (hitFill == null || hitsToFill <= 0)
+        {
+            return;
+        }
+
+        _fillHits++;
+        hitFill.FillAmount = Mathf.Clamp01(_fillHits / (float)hitsToFill);
+        if (resetWhenFull && _fillHits >= hitsToFill)
+        {
+            _fillHits = 0;
+        }
+    }
+
+    void Punch()
+    {
+        if (_punch != null)
+        {
+            StopCoroutine(_punch);
+        }
+
+        _punch = StartCoroutine(PunchRoutine());
+    }
+
+    IEnumerator PunchRoutine()
+    {
+        float duration = Mathf.Max(0.04f, punchDuration);
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float pop = Mathf.Sin(Mathf.PI * Mathf.Clamp01(t / duration));
+            transform.localScale = _outerRest * Mathf.Lerp(1f, punchScale, pop);
+            ApplyInnerScale(Mathf.Lerp(1f, innerPunchScale, pop));
+            yield return null;
+        }
+
+        transform.localScale = _outerRest;
+        ApplyInnerScale(1f);
+
+        _punch = null;
+    }
+
+    void ApplyInnerScale(float multiplier)
+    {
+        if (innerVisuals == null)
+        {
+            return;
+        }
+
+        int count = Mathf.Min(innerVisuals.Length, _innerRests.Length);
+        for (int i = 0; i < count; i++)
+        {
+            if (innerVisuals[i] != null)
+            {
+                innerVisuals[i].localScale = _innerRests[i] * multiplier;
+            }
         }
     }
 
