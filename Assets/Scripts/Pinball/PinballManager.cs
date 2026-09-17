@@ -12,6 +12,8 @@ public sealed class PinballManager : MonoBehaviour
     [Tooltip("최고 점수 텍스트. 게임 시작 시에도 표시됩니다.")]
     [SerializeField] TextMeshProUGUI highScoreText;
 
+    public TextMeshProUGUI ScoreText => scoreText;
+
     void Start()
     {
         RefreshTexts();

@@ -29,6 +29,7 @@ public sealed class PinballGame : MonoBehaviour
     public int RemainingBalls => _pool != null ? _pool.Remaining : 0;
     public int TotalBalls => _pool != null ? _pool.Total : 20;
     public bool CanRestart => _pool != null && _pool.CanRestart;
+    public event System.Action<int, int> ScoreAdded;
 
     void Awake()
     {
@@ -92,8 +93,27 @@ public sealed class PinballGame : MonoBehaviour
             return;
         }
 
-        Score += pocket.Points;
+        RecycleBall(ball);
         LastScoreMessage = $"{pocket.Points}점";
+
+        var fx = FindFirstObjectByType<ScorePickupFx>();
+        if (fx != null)
+        {
+            fx.Play(pocket.transform.position, pocket.Points);
+            return;
+        }
+
+        AddScore(pocket.Points);
+    }
+
+    public void AddScore(int amount)
+    {
+        if (amount <= 0)
+        {
+            return;
+        }
+
+        Score += amount;
         if (Score > HighScore)
         {
             HighScore = Score;
@@ -101,7 +121,7 @@ public sealed class PinballGame : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        RecycleBall(ball);
+        ScoreAdded?.Invoke(amount, Score);
     }
 
     public void RecycleBall(PinballBall ball)
@@ -121,6 +141,12 @@ public sealed class PinballGame : MonoBehaviour
 
         Score = 0;
         LastScoreMessage = "-";
+        var fx = FindFirstObjectByType<ScorePickupFx>();
+        if (fx != null)
+        {
+            fx.Cancel();
+        }
+
         _pool.RestartRound();
     }
 }
