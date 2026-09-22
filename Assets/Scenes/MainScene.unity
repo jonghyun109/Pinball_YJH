@@ -5388,9 +5388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f9b2d38c6a4f7b8d1e0c3a5b7d9e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteGlow
-  glowColor: {r: 0.9199877, g: 0.740566, b: 1, a: 1}
+  glowColor: {r: 0.8756432, g: 0.5896226, b: 1, a: 1}
   startRadius: 0.05
-  endRadius: 0.5
+  endRadius: 0.4
   hitDuration: 0.38
   spreadScale: 2.6
 --- !u!1 &757493933
@@ -8463,9 +8463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f9b2d38c6a4f7b8d1e0c3a5b7d9e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteGlow
-  glowColor: {r: 0.9199877, g: 0.740566, b: 1, a: 1}
+  glowColor: {r: 0.8756432, g: 0.5896226, b: 1, a: 1}
   startRadius: 0.05
-  endRadius: 0.5
+  endRadius: 0.4
   hitDuration: 0.38
   spreadScale: 2.6
 --- !u!1 &1055635495
