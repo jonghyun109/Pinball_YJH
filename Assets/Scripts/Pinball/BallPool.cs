@@ -19,6 +19,25 @@ public sealed class BallPool : MonoBehaviour
     public int Total => _all.Count > 0 ? _all.Count : size;
     public bool CanFire => _available.Count > 0;
     public bool CanRestart => _built && _available.Count == 0;
+    public int ActiveCount
+    {
+        get
+        {
+            int count = 0;
+            for (int i = 0; i < _all.Count; i++)
+            {
+                var ball = _all[i];
+                if (ball != null && ball.gameObject.activeInHierarchy)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+    }
+
+    public bool AllCleared => _built && _available.Count == 0 && ActiveCount == 0;
 
     void Awake()
     {

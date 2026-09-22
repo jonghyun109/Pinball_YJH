@@ -49,6 +49,13 @@ public sealed class SpriteRadialFill : MonoBehaviour
 
         if (_material == null)
         {
+#if UNITY_EDITOR
+            _material = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>("Assets/Shaders/SpriteRadialFill.mat");
+#endif
+        }
+
+        if (_material == null)
+        {
             var shader = Shader.Find("Pinball/Sprite Radial Fill");
             if (shader == null)
             {
@@ -57,8 +64,7 @@ public sealed class SpriteRadialFill : MonoBehaviour
 
             _material = new Material(shader)
             {
-                name = "SpriteRadialFill",
-                hideFlags = HideFlags.HideAndDontSave
+                name = "SpriteRadialFill"
             };
         }
 

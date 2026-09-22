@@ -26,6 +26,10 @@ public sealed class Bumper : MonoBehaviour
     [SerializeField] int hitsToFill = 8;
     [SerializeField] bool resetWhenFull = true;
 
+    [Header("글로우")]
+    [Tooltip("맞을 때 형광으로 깜빡일 배경입니다. SlotGuage_BG에 Sprite Glow를 붙인 뒤 넣습니다.")]
+    [SerializeField] SpriteGlow[] hitGlows;
+
     SpriteRenderer _renderer;
     Color _baseColor;
     Vector3 _outerRest;
@@ -91,6 +95,7 @@ public sealed class Bumper : MonoBehaviour
 
         Punch();
         AddFill();
+        PulseGlows();
         if (flashOnHit)
         {
             Flash();
@@ -154,6 +159,22 @@ public sealed class Bumper : MonoBehaviour
             if (innerVisuals[i] != null)
             {
                 innerVisuals[i].localScale = _innerRests[i] * multiplier;
+            }
+        }
+    }
+
+    void PulseGlows()
+    {
+        if (hitGlows == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < hitGlows.Length; i++)
+        {
+            if (hitGlows[i] != null)
+            {
+                hitGlows[i].Pulse();
             }
         }
     }
