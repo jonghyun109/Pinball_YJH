@@ -30,13 +30,30 @@ public sealed class Bumper : MonoBehaviour
     [Tooltip("맞을 때 형광으로 깜빡일 배경입니다. SlotGuage_BG에 Sprite Glow를 붙인 뒤 넣습니다.")]
     [SerializeField] SpriteGlow[] hitGlows;
 
+    [Header("가득 찼을 때 라이트")]
+    [Tooltip("비우면 같은 게이지 안에서 Light001 이름을 찾습니다.")]
+    [SerializeField] SpriteRenderer light001;
+    [Tooltip("비우면 같은 게이지 안에서 Light002 이름을 찾습니다.")]
+    [SerializeField] SpriteRenderer light002;
+    [SerializeField] Color fullLightRed = new Color(1f, 0.08f, 0.2f, 1f);
+    [SerializeField] Color fullLightBlue = new Color(0.12f, 0.45f, 1f, 1f);
+    [Tooltip("한 색을 유지하는 시간입니다.")]
+    [SerializeField] float fullLightHold = 0.14f;
+    [Tooltip("001이 바뀐 뒤 002가 따라가는 간격입니다.")]
+    [SerializeField] float fullLightStagger = 0.07f;
+    [SerializeField] int fullLightLoops = 2;
+
     SpriteRenderer _renderer;
     Color _baseColor;
+    Color _light001Rest;
+    Color _light002Rest;
     Vector3 _outerRest;
     Vector3[] _innerRests;
     int _fillHits;
+    bool _fullLightPlaying;
     Coroutine _flash;
     Coroutine _punch;
+    Coroutine _fullLights;
 
     void Reset()
     {
@@ -68,6 +85,22 @@ public sealed class Bumper : MonoBehaviour
         {
             hitFill.FillAmount = 0f;
         }
+
+        AutoFindLights();
+        CacheLightColors();
+    }
+
+    void OnDisable()
+    {
+        if (_fullLights != null)
+        {
+            StopCoroutine(_fullLights);
+            _fullLights = null;
+        }
+
+        _fullLightPlaying = false;
+        SetLight(light001, _light001Rest);
+        SetLight(light002, _light002Rest);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -94,7 +127,11 @@ public sealed class Bumper : MonoBehaviour
         collision.rigidbody.AddForce(kick, ForceMode2D.Impulse);
 
         Punch();
-        AddFill();
+        if (!_fullLightPlaying)
+        {
+            AddFill();
+        }
+
         PulseGlows();
         if (flashOnHit)
         {
@@ -114,6 +151,116 @@ public sealed class Bumper : MonoBehaviour
         if (resetWhenFull && _fillHits >= hitsToFill)
         {
             _fillHits = 0;
+            PlayFullLights();
+        }
+    }
+
+    void AutoFindLights()
+    {
+        var root = hitFill != null ? hitFill.transform.parent : transform.parent;
+        if (root == null)
+        {
+            root = transform;
+        }
+
+        var renderers = root.GetComponentsInChildren<SpriteRenderer>(true);
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            var renderer = renderers[i];
+            if (renderer == null)
+            {
+                continue;
+            }
+
+            if (light001 == null && renderer.name.IndexOf("Light001", System.StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                light001 = renderer;
+            }
+            else if (light002 == null && renderer.name.IndexOf("Light002", System.StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                light002 = renderer;
+            }
+        }
+    }
+
+    void CacheLightColors()
+    {
+        if (light001 != null)
+        {
+            _light001Rest = light001.color;
+        }
+
+        if (light002 != null)
+        {
+            _light002Rest = light002.color;
+        }
+    }
+
+    void PlayFullLights()
+    {
+        if (light001 == null && light002 == null)
+        {
+            if (hitFill != null)
+            {
+                hitFill.FillAmount = 0f;
+            }
+
+            return;
+        }
+
+        if (_fullLights != null)
+        {
+            StopCoroutine(_fullLights);
+        }
+
+        _fullLights = StartCoroutine(FullLightRoutine());
+    }
+
+    IEnumerator FullLightRoutine()
+    {
+        _fullLightPlaying = true;
+        CacheLightColors();
+        int loops = Mathf.Max(1, fullLightLoops);
+        float hold = Mathf.Max(0.04f, fullLightHold);
+        float stagger = Mathf.Max(0f, fullLightStagger);
+
+        for (int i = 0; i < loops; i++)
+        {
+            SetLight(light001, fullLightRed);
+            if (stagger > 0f)
+            {
+                yield return new WaitForSeconds(stagger);
+            }
+
+            SetLight(light002, fullLightRed);
+            yield return new WaitForSeconds(hold);
+
+            SetLight(light001, fullLightBlue);
+            if (stagger > 0f)
+            {
+                yield return new WaitForSeconds(stagger);
+            }
+
+            SetLight(light002, fullLightBlue);
+            yield return new WaitForSeconds(hold);
+        }
+
+        SetLight(light001, _light001Rest);
+        SetLight(light002, _light002Rest);
+        if (hitFill != null)
+        {
+            hitFill.FillAmount = 0f;
+        }
+
+        _fullLightPlaying = false;
+        _fullLights = null;
+    }
+
+    static void SetLight(SpriteRenderer renderer, Color color)
+    {
+        if (renderer != null)
+        {
+            renderer.color = color;
         }
     }
 

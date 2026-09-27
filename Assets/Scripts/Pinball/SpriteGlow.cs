@@ -17,10 +17,12 @@ public sealed class SpriteGlow : MonoBehaviour
     [SerializeField] float hitDuration = 0.38f;
     [Tooltip("게이지보다 얼마나 더 바깥까지 퍼질지입니다.")]
     [SerializeField] float spreadScale = 2.6f;
+    [Tooltip("선 주변으로 퍼지는 빛번짐입니다. 클수록 더 부드럽게 번집니다.")]
+    [SerializeField] float glowSpread = 0.09f;
 
     SpriteRenderer _source;
     SpriteRenderer _ring;
-    static Sprite _ringSprite;
+    Sprite _ringSprite;
     Coroutine _pulse;
 
     void Awake()
@@ -97,7 +99,7 @@ public sealed class SpriteGlow : MonoBehaviour
 
         if (_ringSprite == null)
         {
-            _ringSprite = CreateRingSprite();
+            _ringSprite = CreateRingSprite(glowSpread);
         }
 
         if (_ring == null)
@@ -132,7 +134,7 @@ public sealed class SpriteGlow : MonoBehaviour
 
         Vector2 size = _source.sprite != null ? (Vector2)_source.sprite.bounds.size : Vector2.one;
         float maxSize = Mathf.Max(size.x, size.y) * Mathf.Max(0.1f, spreadScale);
-        float world = maxSize * Mathf.Clamp01(radius);
+        float world = maxSize * Mathf.Clamp01(radius) * (0.46f / 0.36f);
         _ring.transform.localScale = new Vector3(world, world, 1f);
         Color color = glowColor;
         color.a = glowColor.a * Mathf.Clamp01(fade);
@@ -212,9 +214,9 @@ public sealed class SpriteGlow : MonoBehaviour
         }
     }
 
-    static Sprite CreateRingSprite()
+    static Sprite CreateRingSprite(float glowSpread)
     {
-        const int size = 256;
+        const int size = 512;
         var texture = new Texture2D(size, size, TextureFormat.RGBA32, false)
         {
             hideFlags = HideFlags.HideAndDontSave,
@@ -223,8 +225,11 @@ public sealed class SpriteGlow : MonoBehaviour
         };
 
         var pixels = new Color32[size * size];
-        const float ringRadius = 0.46f;
-        const float halfThickness = 0.02f;
+        const float ringRadius = 0.36f;
+        const float coreWidth = 0.014f;
+        float bloomWidth = Mathf.Max(0.04f, glowSpread);
+        float coreSigma = coreWidth * coreWidth * 2f;
+        float bloomSigma = bloomWidth * bloomWidth * 2f;
         for (int y = 0; y < size; y++)
         {
             for (int x = 0; x < size; x++)
@@ -232,8 +237,10 @@ public sealed class SpriteGlow : MonoBehaviour
                 float u = (x + 0.5f) / size - 0.5f;
                 float v = (y + 0.5f) / size - 0.5f;
                 float dist = Mathf.Sqrt(u * u + v * v);
-                float alpha = 1f - Mathf.Clamp01(Mathf.Abs(dist - ringRadius) / halfThickness);
-                alpha *= alpha;
+                float d = dist - ringRadius;
+                float core = Mathf.Exp(-(d * d) / coreSigma);
+                float bloom = Mathf.Exp(-(d * d) / bloomSigma);
+                float alpha = Mathf.Clamp01(core * 0.7f + bloom * 0.55f);
                 byte a = (byte)(alpha * 255f);
                 pixels[y * size + x] = new Color32(255, 255, 255, a);
             }
