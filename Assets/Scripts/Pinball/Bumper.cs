@@ -35,7 +35,9 @@ public sealed class Bumper : MonoBehaviour
     [SerializeField] SpriteRenderer light001;
     [Tooltip("비우면 같은 게이지 안에서 Light002 이름을 찾습니다.")]
     [SerializeField] SpriteRenderer light002;
+    [Tooltip("어두운 전구 이미지를 이 색으로 밝힙니다.")]
     [SerializeField] Color fullLightRed = new Color(1f, 0.08f, 0.2f, 1f);
+    [Tooltip("어두운 전구 이미지를 이 색으로 밝힙니다.")]
     [SerializeField] Color fullLightBlue = new Color(0.12f, 0.45f, 1f, 1f);
     [Tooltip("한 색을 유지하는 시간입니다.")]
     [SerializeField] float fullLightHold = 0.14f;
@@ -47,6 +49,13 @@ public sealed class Bumper : MonoBehaviour
     Color _baseColor;
     Color _light001Rest;
     Color _light002Rest;
+    Material _light001Material;
+    Material _light002Material;
+    int _light001Order;
+    int _light002Order;
+    int _lightFrontOrder;
+    bool _lightRestCached;
+    static Material _lightMaterial;
     Vector3 _outerRest;
     Vector3[] _innerRests;
     int _fillHits;
@@ -99,8 +108,10 @@ public sealed class Bumper : MonoBehaviour
         }
 
         _fullLightPlaying = false;
-        SetLight(light001, _light001Rest);
-        SetLight(light002, _light002Rest);
+        if (Application.isPlaying && _lightRestCached)
+        {
+            RestoreLights();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -188,12 +199,19 @@ public sealed class Bumper : MonoBehaviour
         if (light001 != null)
         {
             _light001Rest = light001.color;
+            _light001Material = light001.sharedMaterial;
+            _light001Order = light001.sortingOrder;
         }
 
         if (light002 != null)
         {
             _light002Rest = light002.color;
+            _light002Material = light002.sharedMaterial;
+            _light002Order = light002.sortingOrder;
         }
+
+        _lightFrontOrder = Mathf.Max(_light001Order, _light002Order) + 2;
+        _lightRestCached = light001 != null || light002 != null;
     }
 
     void PlayFullLights()
@@ -219,34 +237,32 @@ public sealed class Bumper : MonoBehaviour
     IEnumerator FullLightRoutine()
     {
         _fullLightPlaying = true;
-        CacheLightColors();
         int loops = Mathf.Max(1, fullLightLoops);
         float hold = Mathf.Max(0.04f, fullLightHold);
         float stagger = Mathf.Max(0f, fullLightStagger);
 
         for (int i = 0; i < loops; i++)
         {
-            SetLight(light001, fullLightRed);
+            PaintLight(light001, fullLightRed);
             if (stagger > 0f)
             {
                 yield return new WaitForSeconds(stagger);
             }
 
-            SetLight(light002, fullLightRed);
+            PaintLight(light002, fullLightRed);
             yield return new WaitForSeconds(hold);
 
-            SetLight(light001, fullLightBlue);
+            PaintLight(light001, fullLightBlue);
             if (stagger > 0f)
             {
                 yield return new WaitForSeconds(stagger);
             }
 
-            SetLight(light002, fullLightBlue);
+            PaintLight(light002, fullLightBlue);
             yield return new WaitForSeconds(hold);
         }
 
-        SetLight(light001, _light001Rest);
-        SetLight(light002, _light002Rest);
+        RestoreLights();
         if (hitFill != null)
         {
             hitFill.FillAmount = 0f;
@@ -256,11 +272,78 @@ public sealed class Bumper : MonoBehaviour
         _fullLights = null;
     }
 
-    static void SetLight(SpriteRenderer renderer, Color color)
+    void PaintLight(SpriteRenderer renderer, Color color)
     {
-        if (renderer != null)
+        if (renderer == null)
         {
-            renderer.color = color;
+            return;
+        }
+
+        Material material = LightMaterial;
+        if (material != null)
+        {
+            renderer.sharedMaterial = material;
+        }
+
+        renderer.color = color;
+        if (light001 != null)
+        {
+            light001.sortingOrder = light001 == renderer ? _lightFrontOrder : _light001Order;
+        }
+
+        if (light002 != null)
+        {
+            light002.sortingOrder = light002 == renderer ? _lightFrontOrder : _light002Order;
+        }
+    }
+
+    void RestoreLights()
+    {
+        RestoreLight(light001, _light001Rest, _light001Material, _light001Order);
+        RestoreLight(light002, _light002Rest, _light002Material, _light002Order);
+    }
+
+    static void RestoreLight(SpriteRenderer renderer, Color color, Material material, int sortingOrder)
+    {
+        if (renderer == null)
+        {
+            return;
+        }
+
+        if (material != null)
+        {
+            renderer.sharedMaterial = material;
+        }
+
+        renderer.color = color;
+        renderer.sortingOrder = sortingOrder;
+    }
+
+    static Material LightMaterial
+    {
+        get
+        {
+            if (_lightMaterial != null)
+            {
+                return _lightMaterial;
+            }
+
+#if UNITY_EDITOR
+            _lightMaterial = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>("Assets/Shaders/SpriteLight.mat");
+#endif
+            if (_lightMaterial == null)
+            {
+                Shader shader = Shader.Find("Pinball/Sprite Light");
+                if (shader != null)
+                {
+                    _lightMaterial = new Material(shader)
+                    {
+                        name = "SpriteLight"
+                    };
+                }
+            }
+
+            return _lightMaterial;
         }
     }
 
