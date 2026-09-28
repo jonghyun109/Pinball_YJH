@@ -1,11 +1,13 @@
-Shader "Pinball/Sprite Light"
+Shader "Pinball/Background Rise"
 {
     Properties
     {
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
-        _ClipEnabled ("Clip Enabled", Float) = 0
-        _ClipY ("Clip Y", Float) = 0
+        _Phase ("Phase", Float) = 0
+        _Speed ("Speed", Float) = 0.18
+        _Strength ("Strength", Float) = 0.4
+        _Width ("Width", Float) = 0.28
     }
 
     SubShader
@@ -45,14 +47,17 @@ Shader "Pinball/Sprite Light"
                 float4 positionCS : SV_POSITION;
                 float4 color : COLOR;
                 float2 uv : TEXCOORD0;
-                float worldY : TEXCOORD1;
             };
 
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
-            float4 _Color;
-            float _ClipEnabled;
-            float _ClipY;
+            CBUFFER_START(UnityPerMaterial)
+                float4 _Color;
+                float _Phase;
+                float _Speed;
+                float _Strength;
+                float _Width;
+            CBUFFER_END
 
             Varyings Vert(Attributes input)
             {
@@ -60,20 +65,18 @@ Shader "Pinball/Sprite Light"
                 output.positionCS = TransformObjectToHClip(input.positionOS);
                 output.uv = input.uv;
                 output.color = input.color * _Color;
-                output.worldY = TransformObjectToWorld(input.positionOS).y;
                 return output;
             }
 
             float4 Frag(Varyings input) : SV_Target
             {
-                if (_ClipEnabled > 0.5 && input.worldY < _ClipY)
-                {
-                    discard;
-                }
-
-                float mask = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv).a;
-                float4 color = input.color;
-                color.a *= mask;
+                float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv) * input.color;
+                float head = frac(_Phase);
+                float dist = abs(input.uv.y - head);
+                dist = min(dist, 1.0 - dist);
+                float width = max(_Width, 0.02);
+                float glow = exp(-(dist * dist) / (width * width));
+                color.rgb *= 1.0 + glow * max(_Strength, 0.0);
                 color.rgb *= color.a;
                 return color;
             }

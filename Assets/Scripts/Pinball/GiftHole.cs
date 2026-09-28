@@ -31,9 +31,6 @@ public sealed class GiftHole : MonoBehaviour
     [SerializeField] float starLightHold = 0.22f;
     [Tooltip("1·3 다음 0·4를 한 세트로, 이 횟수만큼 반복합니다.")]
     [SerializeField] int starLightLoops = 4;
-    [Tooltip("별이 켜질 때 위로 퍼지는 거리입니다. 1보다 커야 아웃라인 밖으로 나갑니다.")]
-    [Min(1.1f)]
-    [SerializeField] float spraySize = 3f;
 
     bool _tipped;
     bool _boosted;
@@ -42,6 +39,9 @@ public sealed class GiftHole : MonoBehaviour
     StarRest[] _starRests;
     bool _starRestReady;
     Coroutine _starGlow;
+    MediumStarSequence _mediumStar;
+    OrderedGlow _orderedGlow;
+    PairGlow _pairGlow;
     static Material _starLightMaterial;
 
     public int Count => _count;
@@ -263,7 +263,6 @@ public sealed class GiftHole : MonoBehaviour
             return;
         }
 
-        spray.SetSize(spraySize);
         spray.Play();
     }
 
@@ -292,6 +291,9 @@ public sealed class GiftHole : MonoBehaviour
     void PlayStarLights()
     {
         PlayOutlineSpray();
+        PlayMediumStar();
+        PlayOrderedGlow();
+        PlayPairGlow();
         if (!_starRestReady)
         {
             return;
@@ -304,6 +306,45 @@ public sealed class GiftHole : MonoBehaviour
         }
 
         _starGlow = StartCoroutine(StarLightRoutine());
+    }
+
+    void PlayMediumStar()
+    {
+        if (_mediumStar == null)
+        {
+            _mediumStar = FindFirstObjectByType<MediumStarSequence>();
+        }
+
+        if (_mediumStar != null)
+        {
+            _mediumStar.Play();
+        }
+    }
+
+    void PlayOrderedGlow()
+    {
+        if (_orderedGlow == null)
+        {
+            _orderedGlow = FindFirstObjectByType<OrderedGlow>();
+        }
+
+        if (_orderedGlow != null)
+        {
+            _orderedGlow.Play();
+        }
+    }
+
+    void PlayPairGlow()
+    {
+        if (_pairGlow == null)
+        {
+            _pairGlow = FindFirstObjectByType<PairGlow>();
+        }
+
+        if (_pairGlow != null)
+        {
+            _pairGlow.Play();
+        }
     }
 
     IEnumerator StarLightRoutine()

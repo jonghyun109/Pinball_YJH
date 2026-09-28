@@ -48,6 +48,7 @@ public sealed class BallLauncher : MonoBehaviour
         }
 
         _nextFireTime = Time.time + fireCooldown;
+        CameraShake.Play();
         if (launchPath == null)
         {
             launchPath = FindFirstObjectByType<LaunchPath>();

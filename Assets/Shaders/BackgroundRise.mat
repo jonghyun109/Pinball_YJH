@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteLight
-  m_Shader: {fileID: 4800000, guid: c3a91e7b4d2f4a08b6e5d1c09f8a7b21, type: 3}
+  m_Name: BackgroundRise
+  m_Shader: {fileID: 4800000, guid: f1a8c3d52e6b4f07a9d0c4e7b2a81536, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,8 +29,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ClipEnabled: 0
-    - _ClipY: 0
+    - _Phase: 0
+    - _Speed: 0.18
+    - _Strength: 0.4
+    - _Width: 0.28
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
